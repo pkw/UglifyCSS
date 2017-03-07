@@ -18,7 +18,7 @@ $ npm install uglifycss
 
 From Github:
 ```sh
-$ git clone git://github.com/fmarcia/UglifyCSS.git
+$ git clone git://github.com/pkw/UglifyCSS.git
 ```
 
 ### Command line
