@@ -671,11 +671,11 @@ function processString(content, options) {
     // remove unnecessary semicolons
     content = content.replace(/;+\}/g, "}");
 
-    // replace 0(px,em,%) with 0.
-    content = content.replace(/(^|[^.0-9\\])(?:0?\.)?0(?:ex|ch|r?em|vw|vh|vmin|vmax|cm|mm|in|pt|pc|px|deg|g?rad|turn|m?s|k?Hz|dpi|dpcm|dppx|%)/gi, "$10");
+    // replace 0(px,em, BUT NOT %) with 0.
+    content = content.replace(/(^|[^.0-9\\])(?:0?\.)?0(?:ex|ch|r?em|vw|vh|vmin|vmax|cm|mm|in|pt|pc|px|deg|g?rad|turn|m?s|k?Hz|dpi|dpcm|dppx)/gi, "$10");
 
-    // Replace x.0(px,em,%) with x(px,em,%).
-    content = content.replace(/([0-9])\.0(ex|ch|r?em|vw|vh|vmin|vmax|cm|mm|in|pt|pc|px|deg|g?rad|turn|m?s|k?Hz|dpi|dpcm|dppx|%| |;)/gi, "$1$2");
+    // Replace x.0(px,em, BUT NOT %) with x(px,em).
+    content = content.replace(/([0-9])\.0(ex|ch|r?em|vw|vh|vmin|vmax|cm|mm|in|pt|pc|px|deg|g?rad|turn|m?s|k?Hz|dpi|dpcm|dppx| |;)/gi, "$1$2");
 
     // replace 0 0 0 0; with 0.
     content = content.replace(/:0 0 0 0(;|\})/g, ":0$1");
